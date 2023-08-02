@@ -1,0 +1,56 @@
+<button mat-icon-button (click)="sidenav.toggle()">
+  <mat-icon >menu</mat-icon>
+</button>
+<mat-sidenav-container hasBackdrop="true">
+  <mat-sidenav #sidenav mode="side" >
+    <mat-nav-list>
+      <a href="#" mat-list-item>
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="#" mat-list-item>
+        <i class="fa-solid fa-users"></i>
+        <span>About us</span>
+      </a>
+      <a  href="#" mat-list-item>
+        <i class="fa-solid fa-envelope"></i>
+        <span>Contact us</span>
+      </a>
+      <a href="#" mat-list-item>
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Help</span>
+      </a>
+      <div mat-list-item class="tools"> 
+        <a href="https://www.youtube.com">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <a href="https://www.youtube.com">
+          <i class="fa-regular fa-heart"></i>
+        </a>
+        <a href="https://www.youtube.com">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+      </div>
+      <div class="connectus">
+        <a href="https://www.youtube.com">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="https://www.facebook.com">
+            <i class="fa-brands fa-facebook-f" ></i>
+        </a>
+        <a href="https://www.twitter.com">
+            <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height:88vh ;"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

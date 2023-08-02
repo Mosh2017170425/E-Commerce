@@ -1,0 +1,28 @@
+.header container{
+    position: fixed;
+    top: 0px;
+    left:0px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: transparent;
+}
+.header .tools{
+    display: flex;
+    gap:6px
+}
+.header .tools a {
+    color: rgb(17, 85, 113);
+    font-size:20px;
+}
+
+.header .logo img{
+    width:160px;
+}
+.header .logo .logo-sm{
+    width:100px
+}
