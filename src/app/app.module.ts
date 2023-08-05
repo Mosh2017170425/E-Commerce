@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './products/products.module';
 import { ShowProductsComponent } from './home/show-products/show-products.component';
-import { SliderComponent } from './home/slider/slider.component';
 //----------sidenav-------
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -15,12 +15,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    ShowProductsComponent,
-    SliderComponent
-  ],
+    ShowProductsComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HomeModule,
     SharedModule,
     ProductsModule,
 //-------material modules--------
