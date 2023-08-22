@@ -1,0 +1,28 @@
+<div class="produdct p-4 h-100">
+    <div class="content shadow p-2  w-100 h-100 rounded-4 ">
+        <div class="fav-container">
+            <input type="checkbox" id="heart"/>
+            <label for="heart"></label>
+        </div>
+        <div class="img-section">
+            <img class="w-100 h-100 mb-4  rounded-top-4" src='{{product.image}} '/>
+        </div>
+        <div class="section1">
+            <div class="price">
+                <span class="d-block my-2">{{product.title }}</span> 
+                <span><b>{{product.price|currency:"USD"}}</b></span>
+            </div>
+        </div>
+        <div class="section2 justify-content-space-between d-none mt-2">
+            <div class="rate">
+                <i class="fa-solid fa-star fa-lg me-1" style="color: #fad900;"></i>
+                <span><b>{{product.rating.rate}}</b></span>
+            </div>
+            <div class="cart">
+                <button>
+                    <i class="fa-solid fa-cart-plus fa-lg" style="color: #0a0a0a;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

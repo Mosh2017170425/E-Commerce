@@ -1,0 +1,49 @@
+
+<div class="products-filter">
+    <div class="available-section">
+        <a href="#available-sidemenu" data-bs-toggle="collapse" >
+            <span>Availability</span>
+            <i class="fa-solid fa-angle-down angle-icon" style="color: #000;"></i>
+        </a>
+        <ul class="collapse " id="available-sidemenu">
+            <li>
+                <input type="checkbox"  id="inStock" [(ngModel)]="checkboxesAvailable['in-stock']"  (change)="change('available')" class="me-2"> 
+                <label for="inStock">In Stock </label>
+            </li>
+            <li>
+                <input type="checkbox" id="outStock"   [(ngModel)]="checkboxesAvailable['out-stock']" (change)="change('available')" class="me-2">
+                <label for="outStock">Out Of Stock</label>
+            </li>
+        </ul>
+    </div>
+    <div class="category-section mt-2 ">
+        <a href="#category-sidemenu" data-bs-toggle="collapse" >
+            <span>Categories </span>
+            <i class="fa-solid fa-angle-down angle-icon" style="color: #000;"></i>
+        </a>
+        <ul class="collapse " id="category-sidemenu">
+            <li *ngFor="let cate of categories">
+                <input type="checkbox"  id="{{cate}}" [(ngModel)]="checkboxesCategory[cate]" class=" me-2" (change)="change('boxesCategory')">
+                <label for="{{cate}}">{{cate}}</label>
+            </li>
+        </ul>
+    </div>
+    <div class="price-section mt-2">
+        <a href="#price-sidemenu" data-bs-toggle="collapse" >
+            <span>Price</span>
+            <i class="fa-solid fa-angle-down angle-icon"  style="color: #000;"></i>
+        </a>
+        <ul class="collapse " id="price-sidemenu">
+            <li>
+                <span>min</span>      
+                <div class="price-container"> 
+                    <input type="number" placeholder="0" class="mx-2" [(ngModel)] ="price['minPrice']"/>
+                </div>
+                <span>max</span>  
+                <div class="price-container">                               <!-- to get ts <==> html and get -->
+                    <input type="number" placeholder="+1000" class="mx-2" [(ngModel)]="price['maxPrice']"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

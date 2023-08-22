@@ -5,13 +5,13 @@
     background-size: cover;
   }
   .slide3{
-    background-image: url('../../../assets/images/slider/slide-3.jpg');
+    background-image: url('../../../../assets/images/slider/slide-3.jpg');
   }
   .slide2{
-    background-image: url('../../../assets/images/slider/slide-2.jpg');
+    background-image: url('../../../../assets/images/slider/slide-2.jpg');
   } 
   .slide1{
-    background-image: url('../../../assets/images/slider/slide-1.jpg');
+    background-image: url('../../../../assets/images/slider/slide-1.jpg');
   }
   .slide1-caption img{
     width: 80px;
@@ -56,7 +56,7 @@
     font-family:Marcellus;
     text-decoration: none;
     color: white;
-    background-image:url('../../../assets/images/slider/slide-shop-bg.png') ;
+    background-image:url('../../../../assets/images/slider/slide-shop-bg.png') ;
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;

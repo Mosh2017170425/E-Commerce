@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'e-commerce';
   toggle(sidenav:any){
-    console.log(sidenav);
+    // console.log(sidenav);
     sidenav.toggle();
   }
 }

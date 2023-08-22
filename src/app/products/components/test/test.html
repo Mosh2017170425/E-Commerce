@@ -1,0 +1,193 @@
+<!-- <app-filter
+         [list]="filterList"  
+        (onFilterChange)="filterChange($event)" >
+</app-filter> -->
+
+
+
+
+
+<!-- // filter(products:any[]){
+        //   let filteredProducts;
+      
+        //   let min=this.minPrice||0;
+        //   let max=this.maxPrice||Infinity;
+        //   let instock= this.checkboxesAvailable['in-stock'];
+        //   let outstock= this.checkboxesAvailable['out-stock'];
+      
+        //   filteredProducts= products.filter((product:any)=>{
+        //     if(product.price >= min && product.price <= max){
+        //       if((product.count > 0 && instock ) || (product.count == 0 && outstock)){
+        //         let category = product.category;  
+        //         return this.checkboxesCategory[category]; //all true;
+        //       }
+        //       else
+        //         return false;
+        //     }
+        //     return false;
+        //   });
+        //   return filteredProducts;
+        // }
+      
+        
+      //   filterPrice(type:string){
+      //     let filteredProducts=[{price:100,name:'item1'},{price:200,name:'item2'},{price:100,name:'item3'}];
+      //     let products;
+      //     switch(type){
+      //       case 'min':
+      //         products =filteredProducts.filter((product:any)=>{
+      //           return product.price >=this.minPrice;
+      //         });
+      //         filteredProducts=products;
+      //         break;
+      //       case 'max':
+      //         products=filteredProducts.filter((product:any)=>{
+      //           return product.price <=this.maxPrice && this.maxPrice;
+      //         });
+      //         filteredProducts=products;
+      //         break;
+      //     }
+      //     console.log(filteredProducts);
+      //     return filteredProducts;
+      //   }
+      // }
+      
+      
+      
+      
+      // filter(products:any[]){
+      //   let filteredProducts;
+      //   let min=this.minPrice||0;
+      //   let max=this.maxPrice||Infinity;
+      
+      //   filteredProducts= products.filter((product:any)=>{
+      //     return product.price >= min && product.price <= max;
+      //   });
+        
+      // }
+      // filterAvailable(products:any[]){
+      //   let filteredProducts;
+      //   let instock= this.checkboxesAvailable['in-stock'];
+      //   let outstock= this.checkboxesAvailable['out-stock'];
+      
+      //   filteredProducts= products.filter((product:any)=>{
+      //     return (product.count > 0 && instock ) || (product.count == 0 && outstock)  ;
+      //   });
+      //   return filteredProducts;
+      // }
+      // filtercategory(products:any[]){
+      //   let filteredProducts;
+      //   filteredProducts= products.filter((product:any)=>{
+      //     let category = product.category;  
+      //     return this.checkboxesCategory[category];
+      //   });
+      // }
+      
+      
+      // this.products=[
+          //   {name:"ee",category:'elec',price:200},
+          //   {name:"we",category:'women',price:1000},
+          //   {name:"man",category:'man',price:900},
+          //   {name:"elec",category:'elec',price:1000},
+          //   {name:"man",category:'man',price:2000},
+          //   {name:"man",category:'man',price:2000},
+          // ]
+          // this.categories=['man','elec','women'];
+          // this.checkboxesCategory={'man':false,'elec':false,'women':false} -->
+
+
+          
+<!-- 
+<input type="checkbox" id="heart" appCheckboxStyle   [(ngModel)]="checked" (change)="chg()"/>
+
+
+<label for="heart" appCheckboxStyle >
+    <i class="fa-solid fa-heart" style="color: red;"></i>
+    <i class="fa-regular fa-heart" style="color: red;"></i>
+</label> -->
+
+
+ <!-- <div class="produdct p-4 col-11 col-sm-6 col-lg-4" *ngFor="let product of products|filterCategory:checkboxesCategory|filterPrice:minPrice:maxPrice|filterAvailability:checkboxesAvailable|sort:sortField"> 
+                    <div class="content shadow p-2  w-100 h-100 rounded-4 ">
+                        <div class="fav-container">
+                            <input type="checkbox" id="heart"/>
+                            <label for="heart"></label>
+                        </div>
+                        <div class="img-section">
+                            <img class="w-100 h-100 mb-4  rounded-top-4" src='{{product.image}} '/>
+                        </div>
+                        <div class="section1">
+                            <div class="price">
+                                <span class="d-block my-2">{{product.title }}</span> 
+                                <span><b>{{product.price|currency:"USD"}}</b></span>
+                            </div>
+                        </div>
+                        <div class="section2 justify-content-space-between d-none mt-2">
+                            <div class="rate">
+                                <i class="fa-solid fa-star fa-lg me-1" style="color: #fad900;"></i>
+                                <span><b>{{product.rating.rate}}</b></span>
+                            </div>
+                            <div class="cart">
+                                <button>
+                                    <i class="fa-solid fa-cart-plus fa-lg" style="color: #0a0a0a;"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+<!-- --------------------------------------------filter sidebar------------------- -->
+            <!-- <div class="products-filter d-none d-lg-block col-3 h-100 "> -->
+                <!-- <div class="available-section">
+                    <a href="#available-sidemenu" data-bs-toggle="collapse" >
+                        <span>Availability</span>
+                        <i class="fa-solid fa-angle-down angle-icon" style="color: #000;"></i>
+                    </a>
+                    <ul class="collapse " id="available-sidemenu">
+                        <li>
+                            <input type="checkbox"  id="inStock" [(ngModel)]="checkboxesAvailable['in-stock']"  (change)="changeAvailable()" class="me-2"> 
+                            <label for="inStock">In Stock </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="outStock"   [(ngModel)]="checkboxesAvailable['out-stock']" (change)="changeAvailable()" class="me-2">
+                            <label for="outStock">Out Of Stock</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="category-section mt-2 ">
+                    <a href="#category-sidemenu" data-bs-toggle="collapse" >
+                        <span>Categories </span>
+                        <i class="fa-solid fa-angle-down angle-icon" style="color: #000;"></i>
+                    </a>
+                    <ul class="collapse " id="category-sidemenu">
+                        <li *ngFor="let cate of categories ;let i=index">
+                            <input type="checkbox"  id="{{cate}}" [(ngModel)]="checkboxesCategory[cate]" class=" me-2" (change)="changeCategory()">
+                            <label for="{{cate}}">{{cate}}</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="price-section mt-2">
+                    <a href="#price-sidemenu" data-bs-toggle="collapse" >
+                        <span>Price</span>
+                        <i class="fa-solid fa-angle-down angle-icon"  style="color: #000;"></i>
+                    </a>
+                    <ul class="collapse " id="price-sidemenu">
+                        <li>
+                            <span>min</span>      
+                            <div class="price-container"> 
+                                <input type="number" placeholder="0" class="mx-2" [(ngModel)] ="minPrice" name="minPrice"/>
+                            </div>
+                            <span>max</span>  
+                            <div class="price-container">                               to get ts <==> html and get
+                                <input type="number" placeholder="+1000" class="mx-2" [(ngModel)]="maxPrice" name="maxPrice" />
+                            </div>
+                        </li>
+                    </ul>
+                </div> -->
+            <!-- </div> -->
+
+
+<!-- <div *ngFor="let item of data.checkboxesAvailable | keyvalue">
+    Key: <strong><b>{{item.key}}</b></strong> and Value: <span>{{item.value}}</span>
+    <input [(ngModel)]="data.checkboxesAvailable[item.key]"/>
+</div> -->

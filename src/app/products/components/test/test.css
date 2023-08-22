@@ -1,0 +1,60 @@
+
+/*      CHECKBOX         */
+
+/* input[type="checkbox"] {
+    display: none;
+} */
+/* input[type="checkbox"]:checked + label:before {
+    display:inline-block;
+}
+ 
+input[type="checkbox"]:checked + label:after {
+    display: none;
+} */
+/* input[type="checkbox"] + label:after {
+    content: '\1F49B';
+	color: red;
+}
+input[type="checkbox"] + label:before {
+    content: "\1F5A4";  
+    color: red;
+    display: none;
+} */
+
+/*unfav */
+
+
+/* .img-section{
+    height:200px;
+    overflow: hidden;
+}
+.products-content .produdct .content img{
+   object-fit:contain;
+   transition: all 1.1s ;
+
+} */
+/* .products-content .produdct .content img:hover{
+    transform: scale(1.2);
+}
+.products-content .produdct  .content:hover>.section2{
+    display: flex !important;
+    gap:20px;
+}
+.products-content .produdct  .content .section2 button{
+    background-color: white;
+    border: none;
+}
+.products-content .produdct .content:hover>.section1{
+    display: none !important;
+} */
+
+/* .products-section .products-toolbar select {
+    width:200px;
+    margin-top: 16px;
+} */
+
+
+/* .products-section .products-toolbar span{
+    font-size:22px ;
+    margin: 16px 10px 16px 0px !important;  
+} */

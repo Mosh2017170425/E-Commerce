@@ -18,7 +18,6 @@
 //     );
 // }
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {Component} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
@@ -34,6 +33,6 @@ import { MatIconModule } from '@angular/material/icon';
   // BrowserAnimationsModule,
  
   
-  imports: [MatSidenavModule, MatButtonModule,BrowserAnimationsModule, MatListModule,MatIconModule],
+  imports: [MatSidenavModule, MatButtonModule, MatListModule,MatIconModule],
 })
 export class SidenavBackdropExample {}

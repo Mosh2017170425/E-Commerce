@@ -1,0 +1,21 @@
+<div class="slick-div">
+    <h2>Just for you</h2>
+    <div class="sub-title">
+      <img src="assets/images/slider/title-decor-left.png"/>
+      <h3>some categories</h3>
+      <img src="assets/images/slider/title-decor-right.png"/>
+    </div>
+    <ngx-slick-carousel class="carousel mt-4 ms-2 me-2" 
+        #slickModal="slick-carousel" 
+        [config]="slideConfig" >
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        
+          <a href="#">
+            <img src="{{ slide.img }}" alt="" class="mt-2" >
+          </a>
+          <div class="content mt-2">
+            <h4>{{slide.name}}</h4>
+          </div>
+        </div>
+    </ngx-slick-carousel>
+</div>

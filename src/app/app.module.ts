@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { RouterOutlet } from '@angular/router';
 import { AppComponent } from './app.component';
+//  ------app components modules----------
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './products/products.module';
-import { ShowProductsComponent } from './home/show-products/show-products.component';
+//----------data module------------
+import { HttpClientModule } from '@angular/common/http';
+//---------services----------------
+import { ProductsService } from './products/services/products.service'; 
 //----------sidenav-------
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -15,22 +20,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    ShowProductsComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule,
     SharedModule,
     ProductsModule,
+    HomeModule,
 //-------material modules--------
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+//----------routing-------------------
+    RouterOutlet,
+//-------Data----------------------
+    HttpClientModule  
     ],
-  providers: [],
+  providers: [
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
