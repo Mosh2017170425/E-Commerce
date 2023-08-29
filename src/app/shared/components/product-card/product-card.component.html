@@ -1,0 +1,32 @@
+<div class="produdct p-4">
+    <div class="content shadow p-2  w-100 h-100 rounded-4 ">
+        <div class="fav-container d-none">
+            <input type="checkbox" id="{{product.id}}fav-icon" [(ngModel)]="favorite" class="d-none"/>
+            <label *ngIf="favorite" for="{{product.id}}fav-icon" class="fs-4" (click)="removeFromFavorites()" ><i  class="fa-solid fa-heart" style="color: #f20202;"></i></label> 
+            <label *ngIf="!favorite" for="{{product.id}}fav-icon" class="fs-4" (click)="addToFavorites()" ><i  class="fa-regular fa-heart" style="color: #f20202;"></i></label>
+        </div>
+        <div class="img-section">
+            <img class="w-100 h-100 mb-4  rounded-top-4" src='{{product.image}} '/>
+        </div>
+        <div class="section1">
+            <div class="price">
+                <span class="d-block my-2">{{product.title }}</span> 
+                <span><b>{{product.price|currency:"USD"}}</b></span>
+            </div>
+        </div>
+        <div class="section2 d-none mt-2 fs-5">
+            <div class="rate">
+                <i class="fa-solid fa-star  me-1" style="color: #fad900;"></i>
+                <span><b>{{product.rating.rate}}</b></span>
+            </div>
+            <div class="cart">
+                <i class="fa-solid fa-cart-plus" style="color: #0a0a0a;" (click)="addToCart()"></i>
+            </div>
+            <div class="view">
+                <a routerLink="/{{product.category}}/product/{{product.id}}">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #0a0a0a;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<div class="cart-container container">
+    <h2>My Cart</h2>
+    <div class="cart-content d-flex flex-wrap">
+        <div class="products-container col-12 col-lg-8">
+            <div class="single-item w-100" *ngFor="let product of products">
+                <div class="content d-flex flex-wrap align-items-center" >
+                    <img src="assets/images/slick-list/electronics-1.jpg" alt=""/>
+                    <span>{{product.price}}</span>
+                    <div>
+                        <i class="fa-solid fa-plus fs-2" style="color:blue;"></i>
+                        <span class="mx-2 fs-2 border-2-solid">{{product.qty}}</span>
+                        <i class="fa-solid fa-minus fs-2" style="color: blue;"></i>
+                    </div>
+                    <i class="fa-solid fa-trash fs-4" style="color:blue;" ></i>
+                </div>
+            </div>
+        </div>
+        <div class="checkout d-flex flex-direction-column">
+            <span>Count : {{'count'}}</span>
+            <span>Total Price : {{"total price"}}</span>
+            <button class="btn btn-outline-secondary">Checkout</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+.product-details{
+    position: relative;
+    padding-top: 30px;
+}
+.imgs-section{
+    height: 500px;
+}
+.imgs-section .main-img{
+    height:85%;
+    overflow: hidden;
+    border-radius:15px;
+}
+.imgs-section .sub-imgs{
+    overflow-x:hidden;
+    height: 15%;
+}
+
+.imgs-section .main-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    transition: all .30s ease-in-out;
+}
+.imgs-section .main-img img:hover{
+    transform:scale(1.1);
+}
+.slide img{
+    object-fit: cover;
+    border: 2px solid black;
+}
+.rate{
+    display: inline-block;
+}
+.price{
+    position: absolute;
+    right: 12px;
+}
+.quantity-container,.actions-container{
+    margin-top: 30px;
+}
+.quantity-container .quantity{
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 3px silver solid;
+    width: 60px;
+    text-align: center;
+}
+.quantity-container .quantity:hover{
+    border: 3px solid rgb(165, 165, 255);
+}
+.related-products h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+}

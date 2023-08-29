@@ -1,0 +1,49 @@
+.produdct{
+    height: 360px;
+    position: relative;
+}
+.produdct .content .fav-container{
+    position:absolute;
+    top: 30px;
+    right: 50px;
+    z-index: 10;
+}
+.img-section{
+    height:200px;
+    overflow: hidden;
+}
+.img-section img{
+    object-fit:contain;
+    transition: all 1.1s ;
+}
+.img-section img:hover{
+    transform: scale(1.2);
+}
+/* .produdct .content .section1,
+.produdct .content .section2,                    add animatoin when disply section  
+.produdct .content .fav-container{
+    transition: 3.1s ease ;
+} */
+.produdct  .content:hover>.section2{
+    display: flex !important;
+    gap: 20px;
+}
+.produdct .content:hover>.section1{
+    display: none !important;
+}
+.produdct .content:hover>.fav-container{
+    display: block !important;
+}
+.produdct  .content .section2 button{
+    background-color: white;
+    border: none;
+}
+
+.produdct .content .section1 span{
+    overflow-y: hidden;
+    display: inline-block;
+    height: 47px;
+}
+.cart,.view{
+    cursor: pointer;
+}

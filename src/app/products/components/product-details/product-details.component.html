@@ -1,1 +1,52 @@
-<p>product-details works!</p>
+<div class="product-details container">
+    <div class="product-content d-flex flex-wrap">
+        <div class="imgs-section col-12  col-md-5 mb-4">
+            <div class="main-img w-100 pb-4">
+                <img [src]="imageSrc"/>
+            </div>
+            <div class="sub-imgs w-100" *ngIf="product.images">
+                <ngx-slick-carousel class="h-100 d-flex" 
+                    [config]="slideConfig" >
+                    <div ngxSlickItem *ngFor="let image of product.images" class="slide p-1">
+                        <img src="{{image }}" alt="" class="h-100 w-100" (click)="changeImage(image)">
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+        <div class="product-data col-12 col-md-7  ps-md-3 mb-4" >
+            <h2>{{product.title}}</h2>
+            <p>{{product.description}}</p>
+           
+            <div class="rate">
+                <i class="fa-solid fa-star fa-lg me-1" style="color: #fad900;"></i>
+                <span><b>{{product.rating.rate}}</b></span>
+            </div>
+            <span class="price"><b>{{product.price|currency:"USD"}}</b></span>
+           
+            <div class="quantity-container d-flex align-items-center ">
+                <span class="fs-4 me-2">Quantity</span>
+                <button class="btn btn-outline-secondary">
+                    <i class="fa-solid  fa-plus  fs-3" (click)="increment()"></i>
+                </button>
+                <input type="number" [(ngModel)]="quantity" class="quantity mx-4"/>
+                <button class="btn btn-outline-secondary">
+                    <i class="fa-solid  fa-minus fs-3" (click)="decrement()"></i>
+                </button>
+                
+            </div>
+            <div class="d-flex flex-wrap gap-4 justify-content-center justify-content-md-start actions-container">
+                <button class="btn btn-outline-secondary col-12 col-md-5 py-2" (click)="addToCart()">Add To Cart</button>
+                <button class="btn btn-outline-secondary col-12 col-md-5 py-2" (click)="addToFavorites()">Add To Wishlist</button>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="related-products">
+        <h2>Related Products</h2>
+       <div class="content d-flex  flex-wrap ">
+            <div class="col-11 col-sm-6  col-md-4 col-lg-3"  *ngFor="let item of relatedProducts">
+                <app-product-card   [product]="item"></app-product-card>
+            </div>
+       </div>
+    </div>
+</div>

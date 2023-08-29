@@ -24,12 +24,12 @@ export class AllProductsComponent  implements OnInit{
     // this.getproducts();
     // this.getallCategories();
     this.products=[
-            {title:"ee",category:'elec',price:200,rating:{rate:3,count:0}},
-            {title:"we",category:'women',price:1000,rating:{rate:1,count:3}},
-            {title:"man",category:'man',price:900 ,rating:{rate:5,count:5}},
-            {title:"elec",category:'elec',price:1000,rating:{rate:2,count:10}},
-            {title:"man",category:'man',price:2000 ,rating:{rate:4,count:0}},
-            {title:"man",category:'man',price:2000 ,rating:{rate:3,count:3}},
+            {id:1,title:"ee",category:'elec',price:200,rating:{rate:3,count:0}},
+            {id:2,title:"we",category:'women',price:1000,rating:{rate:1,count:3}},
+            {id:3,title:"man",category:'man',price:900 ,rating:{rate:5,count:5}},
+            {id:4,title:"elec",category:'elec',price:1000,rating:{rate:2,count:10}},
+            {id:5,title:"man manman manma nmanm anmanm anmanman manmanmanma nmanmanman",category:'man',price:2000 ,rating:{rate:4,count:0}},
+            {id:6,title:"man",category:'man',price:3000 ,rating:{rate:3,count:3}},
           ]
           this.categories=['man','elec','women'];
           this.checkboxesCategory={'man':false,'elec':false,'women':false}
@@ -66,14 +66,15 @@ export class AllProductsComponent  implements OnInit{
     }
   }
   clear(){
-    
     Object.keys(this.checkboxesAvailable).forEach((key) =>{
       this.checkboxesAvailable[key]=false;
     });
     Object.keys(this.checkboxesCategory).forEach((key) =>{
       this.checkboxesCategory[key]=false;
     });
-
+    
+    this.checkboxesCategory={...this.checkboxesCategory};
+    this.checkboxesAvailable={...this.checkboxesAvailable}
     this.price.minPrice=null;
     this.price.maxPrice=null;
     this.sortField='none';
@@ -101,8 +102,6 @@ export class AllProductsComponent  implements OnInit{
   
   changeSelected(e:any){
     this.sortField=e.target.value;
-    console.log(this.sortField);
-
   }
   change(type:string){
     if(type === 'boxesCategory'){

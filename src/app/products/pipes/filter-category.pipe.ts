@@ -10,7 +10,6 @@ export class FilterCategoryPipe implements PipeTransform {
     let Checked = Object.values(categoriescheckboxes).includes(true);
     if(Checked)
     {
-
       let filteredProducts=[];
       filteredProducts= products.filter((product:any)=>{
         let category = product.category;  
@@ -19,7 +18,6 @@ export class FilterCategoryPipe implements PipeTransform {
       return filteredProducts;
     }
     else{
-      console.log(Checked)
       return products
     }
   }

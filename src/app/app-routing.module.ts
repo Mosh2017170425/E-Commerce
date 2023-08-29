@@ -8,7 +8,7 @@ import { MyComponent } from './products/components/test/test';
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"products",component:AllProductsComponent},
-  {path:"product",component:ProductDetailsComponent},
+  {path:":category/product/:id",component:ProductDetailsComponent},
   {path:"cart",component:CartComponent},
   {path:"test",component:MyComponent},
 
