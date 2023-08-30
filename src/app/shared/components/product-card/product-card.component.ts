@@ -22,6 +22,15 @@ export class ProductCardComponent implements OnInit{
     this.sharedService.addToFavorites(this.product.id);
   }
   removeFromFavorites(){
-    this.sharedService.removeFromFavorites(this.product.id);
+    let favoritesData = localStorage.getItem(environment.favorites);
+    if(favoritesData){ 
+      let favoriteList=[];
+      favoriteList = JSON.parse(favoritesData);
+      let newFavoriteList = favoriteList.filter((id:any)=>id !== this.product.id);  
+      localStorage.setItem(environment.favorites,JSON.stringify(newFavoriteList));
+      console.log('removed')
+      return;
+    }
+    console.log('Does not exist')
   }
 }

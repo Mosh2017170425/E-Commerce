@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class SharedService {
-
   constructor() { }
   addToFavorites(id:number){
     let favoriteList=[];
@@ -36,17 +35,5 @@ export class SharedService {
     data.push({...product,qty:quantity});
     localStorage.setItem(environment.cart,JSON.stringify(data));
     console.log("added a ");  //popup added
-  }
-  removeFromFavorites(id:number){
-    let favoritesData = localStorage.getItem(environment.favorites);
-    if(favoritesData){ 
-      let favoriteList=[];
-      favoriteList = JSON.parse(favoritesData);
-      let newFavoriteList = favoriteList.filter((id:any)=>id !== id);  
-      localStorage.setItem(environment.favorites,JSON.stringify(newFavoriteList));
-      console.log('removed')
-      return;
-    }
-    console.log('Does not exist')
   }
 }

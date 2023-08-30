@@ -1,24 +1,35 @@
 <div class="cart-container container">
     <h2>My Cart</h2>
-    <div class="cart-content d-flex flex-wrap">
+    <div class="cart-content d-flex flex-wrap"  *ngIf="products.length">
         <div class="products-container col-12 col-lg-8">
-            <div class="single-item w-100" *ngFor="let product of products">
+            <div class="single-item w-100 mb-4" *ngFor="let product of products ;let i = index">
                 <div class="content d-flex flex-wrap align-items-center" >
                     <img src="assets/images/slick-list/electronics-1.jpg" alt=""/>
-                    <span>{{product.price}}</span>
-                    <div>
-                        <i class="fa-solid fa-plus fs-2" style="color:blue;"></i>
-                        <span class="mx-2 fs-2 border-2-solid">{{product.qty}}</span>
-                        <i class="fa-solid fa-minus fs-2" style="color: blue;"></i>
+                    <span class="fs-4">{{product.price|currency:'USD'}}</span>
+                    <div class="quantity">
+                        <i class="fa-solid fa-plus fs-4" style="color:green;" (click)="increment(i)"></i>
+                        <span class="mx-2 fs-2 ">{{product.qty}}</span>
+                        <i class="fa-solid fa-minus fs-4" style="color: red" (click)="decrement(i)"></i>
                     </div>
-                    <i class="fa-solid fa-trash fs-4" style="color:blue;" ></i>
+                    <i class="fa-solid fa-trash fs-4" style="color:red;" (click)="removeFromCart(product.id)" ></i>
                 </div>
             </div>
         </div>
         <div class="checkout d-flex flex-direction-column">
-            <span>Count : {{'count'}}</span>
-            <span>Total Price : {{"total price"}}</span>
-            <button class="btn btn-outline-secondary">Checkout</button>
+            <span>Count : {{getCount()}}</span>
+            <span>Total Price : {{getTotalPrice() |currency:'USD'}}</span>
+            <button class="btn btn-outline-secondary" (click)="checkout()">Checkout</button>
+            <button class="btn btn-outline-danger"  (click)="clear()">Clear</button>
         </div>
+    </div>
+    <div class="no-products" *ngIf="!products.length">
+        <div class="fs-3 text-primary">
+            <p>you don't have any products</p>
+        </div>
+        <div class="d-flex flex-wrap align-items-center">
+            <a class="btn btn-outline-secondary w-50" routerLink="/products">Shop Now</a>
+            <img src="assets/images/cart/girl-go-to-shopping.png"/>
+        </div>
+            
     </div>
 </div>
