@@ -21,34 +21,3 @@ h2{
     height: 20px;
     align-self: center;
 }
-.fav,.unfav{
-    font-size: 30px;
-}
-input[type="checkbox"]:checked ~.box-icons .fav-label{
-    display: block !important;
-}
-input[type="checkbox"]:checked ~ .box-icons .unfav-label{
-    display: none;
-}
-/* ;;;;;;;;; */
-.box-icons{
-    position: absolute;
-    top:40px;
-    right: 40px;
-}
-.products{
-   flex-wrap:wrap ;
-}
-.products .single-product{
-    position: relative;
-    padding:20px
-}
-.products .single-product .content{
-    border: 2px solid black;
-}
-
-.products .single-product .content img{
-    object-fit: cover;
-    width: 100%; 
-    height: 100%;
-}

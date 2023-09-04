@@ -1,16 +1,14 @@
 <div class="products-container">
-    <h2>shop now</h2>
+   <h2>shop now</h2>
    <div class="sub-title">
       <img src="assets/images/slider/title-decor-left.png"/>
       <h3>Shop our best sellers</h3>
       <img src="assets/images/slider/title-decor-right.png"/>
    </div>
-   <!-- product -->
-   <div class="products d-flex">
-      <div class="content d-flex  flex-wrap ">
-         <div class="col-11 col-sm-6  col-md-4 col-lg-3"  *ngFor="let item of products">
-            <app-product-card   [product]="item"></app-product-card>
-         </div>
-    </div>
+   <!-- products -->
+   <div class="products d-flex  flex-wrap">
+      <div class="single-product col-11 col-sm-4  col-md-3  col-lg-2"  *ngFor="let item of products">
+         <app-product-card   [product]="item"></app-product-card>
+      </div>
    </div>
 </div>

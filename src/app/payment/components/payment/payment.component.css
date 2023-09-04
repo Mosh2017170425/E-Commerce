@@ -1,0 +1,62 @@
+span{
+    user-select: none;
+}
+.payment{
+    background-color: #a7a7ff71;
+    /* background-image: url('../../../../assets/images/payment/bg-2.png') ;
+    background-size:cover;
+    background-position: center; 
+    background-repeat: no-repeat; */
+    padding-block: 40px;
+}
+
+.payment-content{
+    background-color: white;
+    margin: auto;
+    border-radius: 15px;
+    border: 8px solid rgba(212, 212, 212, 0.26);
+}
+.payment-content .title 
+{
+    font-size:22px;
+    color: gray;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+}
+.payment-method{
+    justify-content: space-between;
+    gap:20px;
+}
+
+.payment-method .paypal,
+.payment-method .credit-card
+{
+    border: 2px solid gray;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    display:flex;
+    flex-grow: 1;
+}
+.border-blue
+{
+    border-color: blue;
+}
+.order-summery .product{
+    color:gray
+}
+.order-summery .product img{
+    width: 70px;
+    height: 50px;
+}
+.order-summery .product{
+    justify-content: space-between;
+}
+.order-summery .product .product-title{
+    font-weight: 500;
+    display: block;
+}
+.price-summery >div{
+    justify-content: space-between;
+    font-size: 20px;
+}

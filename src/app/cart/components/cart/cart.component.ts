@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
@@ -8,10 +9,10 @@ import { environment } from 'src/environments/environment.development';
 })
 export class CartComponent implements OnInit {
   products:any[]=[];
+  constructor(private router:Router){}
   ngOnInit(): void {
     let data = localStorage.getItem(environment.cart);
     this.products = data ? JSON.parse(data):[] ;
-    console.log(this.products)
   }
   removeFromCart(id:number){
     this.products = this.products.filter((product)=>product.id != id);
@@ -43,8 +44,7 @@ export class CartComponent implements OnInit {
     return count;
   }
   checkout(){
-    this.increment(0);
-    console.log(this.products)
+    this.router.navigate(['/payment'],{state:this.products});
   }
   clear(){
     this.products=[];

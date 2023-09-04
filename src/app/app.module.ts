@@ -8,7 +8,7 @@ import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './products/products.module';
 import { CartModule } from './cart/cart.module';
-
+import { PaymentModule } from './payment/payment.module';
 //----------data module------------
 import { HttpClientModule } from '@angular/common/http';
 //---------services----------------
@@ -24,12 +24,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     SharedModule,
     ProductsModule,
     CartModule,
     HomeModule,
+    PaymentModule,
 //-------material modules--------
     MatSidenavModule,
     MatListModule,

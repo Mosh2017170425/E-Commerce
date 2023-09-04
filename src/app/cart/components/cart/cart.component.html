@@ -1,35 +1,43 @@
 <div class="cart-container container">
-    <h2>My Cart</h2>
-    <div class="cart-content d-flex flex-wrap"  *ngIf="products.length">
-        <div class="products-container col-12 col-lg-8">
-            <div class="single-item w-100 mb-4" *ngFor="let product of products ;let i = index">
-                <div class="content d-flex flex-wrap align-items-center" >
-                    <img src="assets/images/slick-list/electronics-1.jpg" alt=""/>
-                    <span class="fs-4">{{product.price|currency:'USD'}}</span>
+    <h2>Shopping Cart</h2>
+    <div class="cart-content d-flex flex-wrap mt-4 gap-4"  *ngIf="products.length">
+        <div class="products-container col-12 col-lg-8 flex-grow-1">
+            <div class="single-item mb-4" *ngFor="let product of products ;let i = index">
+                <div class="content  fs-4" >
+                    <img src="{{product.image}}" alt=""/>
+                    <span>{{product.title}}</span>
+                    <span >{{product.price|currency:'USD'}}</span>
                     <div class="quantity">
-                        <i class="fa-solid fa-plus fs-4" style="color:green;" (click)="increment(i)"></i>
+                        <i class="fa-solid fa-plus" style="color:green;" (click)="increment(i)"></i>
                         <span class="mx-2 fs-2 ">{{product.qty}}</span>
-                        <i class="fa-solid fa-minus fs-4" style="color: red" (click)="decrement(i)"></i>
+                        <i class="fa-solid fa-minus" style="color: red" (click)="decrement(i)"></i>
                     </div>
-                    <i class="fa-solid fa-trash fs-4" style="color:red;" (click)="removeFromCart(product.id)" ></i>
+                    <i class="fa-solid fa-trash" style="color:red;" (click)="removeFromCart(product.id)" ></i>
                 </div>
             </div>
         </div>
-        <div class="checkout d-flex flex-direction-column">
+        <div class="checkout">
             <span>Count : {{getCount()}}</span>
             <span>Total Price : {{getTotalPrice() |currency:'USD'}}</span>
             <button class="btn btn-outline-secondary" (click)="checkout()">Checkout</button>
             <button class="btn btn-outline-danger"  (click)="clear()">Clear</button>
         </div>
+        <a class="btn btn-outline-success w-50"  routerLink = "/products">Continue Shopping</a>
+
     </div>
-    <div class="no-products" *ngIf="!products.length">
-        <div class="fs-3 text-primary">
-            <p>you don't have any products</p>
+    <div class="no-products  d-flex flex-wrap text-center align-items-center mt-4" *ngIf="!products.length">
+        <div class="col-12 col-md-6">
+            <h1>Online Shopping</h1>
+            <p class="text-danger">
+                Oh! Your shopping cart appears to be empty
+                <br/>
+                Try to see new products 
+            </p>
+            <a class="btn btn-outline-danger mt-4" routerLink="/products">Shop Now</a>
         </div>
-        <div class="d-flex flex-wrap align-items-center">
-            <a class="btn btn-outline-secondary w-50" routerLink="/products">Shop Now</a>
-            <img src="assets/images/cart/girl-go-to-shopping.png"/>
+        <div class="col-12 col-md-6">
+            <img src="assets/images/cart/cart-empty-1.jpg" class="w-100"/>
         </div>
-            
     </div>
+
 </div>

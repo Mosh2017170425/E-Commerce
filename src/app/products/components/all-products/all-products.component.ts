@@ -13,7 +13,7 @@ import { ProductsService } from './../../services/products.service';
 export class AllProductsComponent  implements OnInit{
   products:any;
   categories:any;
-  sortField:any;
+  sortField:string='none';
   sortFields=['price','rate'];
   price:any={'minPrice':null,'maxPrice':null}
   checkboxesCategory:any={};

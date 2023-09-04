@@ -1,5 +1,5 @@
 .products-filter{
-    width: 350px;
+    width: 320px;
     color: #909088;
     padding: 30px;
     position:relative;
@@ -39,6 +39,9 @@
 .price-container input,.price-container input:focus{
     outline: none;
     border: none;
+}
+ul{
+    padding-left: 10px;
 }
 li{
     list-style: none;

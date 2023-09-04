@@ -1,0 +1,91 @@
+<div class="payment">
+    <div class="payment-content col-10 py-4">
+        <div class="title px-4">
+            <i class="fa-solid fa-cart-shopping me-4"></i>
+            <span>Shopping Cart</span>
+        </div>
+        <hr/>
+        <div class="details d-flex flex-wrap">
+            <div class="payment-details col-12  col-lg-8 px-4  mb-4">
+                <span class="fs-3">Payment Details</span>
+                <div class="payment-method d-flex flex-wrap my-4">
+                    <div class="credit-card  col-10  col-md-5" (click)="click('credit')">
+                        <i class="icon me-3"></i>
+                        <span class="flex-grow-1">Credit Card</span>
+                        <input type="radio" name="paymentMethod" value="credit"  [(ngModel)]="value" />
+                    </div>
+                         <!-- *ngClass="'border-color'" -->
+                    <div class="paypal col-10 col-md-5" (click)="click('paypal')" >
+                        <i class="icon me-3"></i>
+                        <span class="flex-grow-1">PayPal</span>
+                        <input type="radio"  name="paymentMethod" value="paypal" [(ngModel)]="value"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label>Card holder Name</label>
+                    <input class="form-control text-center mt-1" type="text" />
+                </div>
+                <div class="form-group mt-3 ">
+                    <label >Card Number</label>
+                    <input class="form-control text-center mt-1" type="text" />
+                </div>
+                <div class="d-flex flex-wrap gap-2 my-3">
+                    <div class="col-12 col-sm-5">
+                        <label>Expiration date</label>
+                        <div class="d-flex gap-2 mt-2">
+                            <input class="form-control text-center" placeholder="dd"  type="number"/>
+                            <span class="text-center fs-4">/</span>
+                            <input class="form-control text-center" placeholder="mm"  type="number" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 flex-grow-1">
+                        <label for="cvv">Cvv</label>
+                        <input class="form-control text-center mt-2"  id="cvv" type="text" />
+                    </div>
+                </div>
+                <!-- <button class="btn btn-outline-primary col-sm-6 col-12 fs-5 mt-4 d-none d-lg-block">Pay   {{getTotalPrice()|currency:'USD'}}</button> -->
+                <!-- <a routerLink="/products" class="text-black fs-4 " >Shop now</a> -->
+
+            
+            </div>
+            <div class="order-summery col-12 col-lg-4 px-4">
+                 <span class="fs-3">Order Summery</span>
+                 <div class="product d-flex align-items-center mb-4" *ngFor="let item of products ; let i=index">
+                     <img src="{{item.img}}"/>
+                     <div>
+                         <span class="product-title">{{item.title}}</span>
+                         <i class="fa-solid fa-square-plus fs-4" (click)="increment(i)"></i>
+                         <span class="mx-2 fs-5">{{item.qty}}</span>
+                         <i class="fa-solid fa-square-minus fs-4 " (click)="decrement(i)"></i>
+                     </div>
+                     <i class="fa-solid fa-close fs-5" (click)="remove(item.id)" ></i>
+                 </div>
+                <hr/>
+                <div class="price-summery">
+                    <div class="d-flex">
+                        <span>Subtotal</span>
+                        <span>{{ getsubTotal()|currency:'USD'}}</span>
+                    </div>
+                    <div class="d-flex">
+                        <span>Tax</span>
+                        <span>{{tax|currency:'USD'}}</span>
+                    </div>
+                    <div class="d-flex">
+                        <span>Shipping</span>
+                        <span>{{shipping|currency:'USD'}}</span>
+                    </div>
+                    <div class="d-flex">
+                        <span><b>Total</b></span>
+                        <span><b>{{getTotalPrice()|currency:'USD'}}</b></span>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="actions pt-sm-4 px-4">
+            <button class="btn btn-outline-primary col fs-5">Pay   {{getTotalPrice()|currency:'USD'}}</button>
+            <a routerLink="/products" class="text-black fs-4 ms-4 " >Shop now</a>
+        </div>
+        
+
+    </div>
+</div>

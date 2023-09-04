@@ -20,7 +20,7 @@
             <div class="d-none d-lg-block h-100">
                 <app-filter-sidebar  (dataChange)="change($event)" [checkboxesAvailable]="checkboxesAvailable" [checkboxesCategory]="checkboxesCategory" [price]="price" [categories]="categories"></app-filter-sidebar>
             </div>
-            <div class="products-content justify-content-center justify-content-sm-start col-12 col-lg-9 ">
+            <div class="products-content justify-content-center justify-content-sm-start flex-wrap flex-grow-1 ">
                 <div class="col-11 col-sm-6 col-lg-4"  *ngFor="let product of products|filterCategory:checkboxesCategory|filterPrice:price.minPrice:price.maxPrice|filterAvailability:checkboxesAvailable|sort:sortField">
                     <app-product-card  [product]="product"></app-product-card>
                 </div>

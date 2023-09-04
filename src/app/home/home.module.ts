@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { SliderComponent } from './components/slider/slider.component';
 import { SlickListComponent } from './components/slick-list/slick-list.component';
 import { ShowProductsComponent } from "./components/show-products/show-products.component";
@@ -19,7 +21,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
   imports: [
     CommonModule,
     SlickCarouselModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports:[
     HomeComponent

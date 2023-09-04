@@ -4,18 +4,18 @@
         <img src="assets/images/logo_sm.png" class="logo-sm d-block  d-md-none"/>
     </div>
     <div class="tools">
-        <a href="https://www.youtube.com" class="d-none d-sm-block">
-            <i class="fa-regular fa-user"></i>
-        </a>
-        <a href="https://www.youtube.com" class="d-none d-sm-block">
-            <i class="fa-regular fa-heart"></i>
-        </a>
-        <a href="cart" class="d-none d-sm-block">
-            <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-        <a href="#" class="d-block d-sm-none" (click)="sidenavToggle()">
-            <mat-icon  aria-label="Side nav toggle icon" >menu</mat-icon>
-        </a>
+        <div class="d-none d-sm-flex gap-2">
+            <a routerLink="/profile" >
+                <i class="fa-regular fa-user"></i>
+            </a>
+            <a routerLink="/favorites" >
+                <i class="fa-regular fa-heart"></i>
+            </a>
+            <a routerLink="/cart" >
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+        <i class="menu-icon fa-solid fa-bars fs-3 d-sm-none" (click)="sidenavToggle()"></i>
     </div>
 </div>
 

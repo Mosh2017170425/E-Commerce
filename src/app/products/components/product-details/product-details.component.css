@@ -46,6 +46,7 @@
     border: 3px silver solid;
     width: 100px;
     text-align: center;
+    
 }
 .quantity-container .quantity:hover{
     border: 3px solid rgb(165, 165, 255);

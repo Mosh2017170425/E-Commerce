@@ -11,4 +11,7 @@ export class HomeService {
   getAllProducts(){
     return this.http.get(`${environment.BaseUrl}products`);
   }
+  getCategories(){
+    return this.http.get(`${environment.BaseUrl}categories`);
+  }
 }
