@@ -1,21 +1,45 @@
-<div class="header container">
-    <div class="logo">
-        <img src="assets/images/logo1.png" class="logo-lg d-none d-md-block"/>
-        <img src="assets/images/logo_sm.png" class="logo-sm d-block  d-md-none"/>
-    </div>
-    <div class="tools">
-        <div class="d-none d-sm-flex gap-2">
-            <a routerLink="/profile" >
-                <i class="fa-regular fa-user"></i>
-            </a>
-            <a routerLink="/favorites" >
-                <i class="fa-regular fa-heart"></i>
-            </a>
-            <a routerLink="/cart" >
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
+<div class="header" id="top">
+    <div class="d-none d-md-block content-lg">
+        <div class="section-1 container">
+            <div class="logo">
+                <img src="assets/images/logo1.png"/>
+            </div>
+            <div class="tools">
+                <div class="d-md-flex gap-2">
+                    <a routerLink="/profile" >
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <a routerLink="/favorites" >
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                    <a routerLink="/cart" >
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <i class="menu-icon fa-solid fa-bars fs-3 d-sm-none" (click)="sidenavToggle()"></i>
+        <div class="section-2">
+            <hr class="my-2"/>
+            <ul>
+                <li>
+                    <a routerLink="/">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/products">Shop</a>
+                </li>
+                <li>
+                    <a routerLink="/aboutUs" >About Us</a>
+                </li>
+            </ul>
+        </div>
     </div>
+    <div class="d-md-none container content-sm ">
+        <div class="logo">
+            <img src="assets/images/logo_sm.png"/>
+        </div>
+        <div class="menu">
+            <i class="menu-icon fa-solid fa-bars fs-3" (click)="sidenavToggle()"></i>
+        </div>
+    </div>
+    <hr class="mb-0 mt-2"/>
 </div>
-

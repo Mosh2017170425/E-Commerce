@@ -4,6 +4,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+// import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     PaymentComponent
@@ -12,6 +14,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     CommonModule,
     RouterModule
+    // NgbToastModule
   ]
 })
 export class PaymentModule { }

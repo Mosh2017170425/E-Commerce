@@ -1,5 +1,4 @@
 
-
 mat-sidenav-container mat-sidenav{
   width: 250px;
   padding:35px 25px;
@@ -51,4 +50,16 @@ mat-nav-list .connectus a:hover{
 
 ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
   background-color: rgba(53, 53, 53, 0.44);
+}
+
+.button-up{
+  position: fixed;
+  bottom:40px;
+  right:40px;
+  z-index: 10;
+  background-color:#F8796C ;
+  font-size: 30px;
+}
+.button-up i{
+  margin:20px ;
 }

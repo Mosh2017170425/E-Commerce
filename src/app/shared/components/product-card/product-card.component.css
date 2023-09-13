@@ -1,12 +1,33 @@
+a{
+    text-decoration: none;
+    color: white;
+}
+.cart,.view{
+    cursor: pointer;
+}
+
 .produdct{
     height: 360px;
     position: relative;
 }
-.produdct .content .fav-container{
+.produdct .content .actions-section
+{
+    color: white;
     position:absolute;
     top: 30px;
-    right: 50px;
+    right: 40px;
     z-index: 10;
+}
+.content .actions-section .cart,
+.content .actions-section .view,
+.content .actions-section .fav-container
+{   margin-bottom: 10px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9f00cc;
 }
 .img-section{
     height:200px;
@@ -19,31 +40,23 @@
 .img-section img:hover{
     transform: scale(1.2);
 }
+
+.produdct  .content:hover>.actions-section{
+    display: block !important;
+}
+.produdct .content .details-section>span{
+    overflow-y: hidden;
+    display: inline-block;
+    height: 47px;
+}
+.produdct .content .details-section>div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 /* .produdct .content .section1,
 .produdct .content .section2,                    add animatoin when disply section  
 .produdct .content .fav-container{
     transition: 3.1s ease ;
 } */
-.produdct  .content:hover>.section2{
-    display: flex !important;
-    gap: 20px;
-}
-.produdct .content:hover>.section1{
-    display: none !important;
-}
-.produdct .content:hover>.fav-container{
-    display: block !important;
-}
-.produdct  .content .section2 button{
-    background-color: white;
-    border: none;
-}
-
-.produdct .content .section1 span{
-    overflow-y: hidden;
-    display: inline-block;
-    height: 47px;
-}
-.cart,.view{
-    cursor: pointer;
-}

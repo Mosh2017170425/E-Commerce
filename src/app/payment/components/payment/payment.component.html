@@ -6,17 +6,18 @@
         </div>
         <hr/>
         <div class="details d-flex flex-wrap">
-            <div class="payment-details col-12  col-lg-8 px-4  mb-4">
+           <div class="col-12  col-lg-7 px-4  mb-4">
+            <div class="payment-details">
                 <span class="fs-3">Payment Details</span>
                 <div class="payment-method d-flex flex-wrap my-4">
                     <div class="credit-card  col-10  col-md-5" (click)="click('credit')">
-                        <i class="icon me-3"></i>
+                        <i class="icon me-3 fa-regular fa-credit-card" style="color: #000000;"></i>
                         <span class="flex-grow-1">Credit Card</span>
                         <input type="radio" name="paymentMethod" value="credit"  [(ngModel)]="value" />
                     </div>
                          <!-- *ngClass="'border-color'" -->
                     <div class="paypal col-10 col-md-5" (click)="click('paypal')" >
-                        <i class="icon me-3"></i>
+                        <i class="icon me-3  fa-brands fa-paypal" style="color: #000000;"></i>
                         <span class="flex-grow-1">PayPal</span>
                         <input type="radio"  name="paymentMethod" value="paypal" [(ngModel)]="value"/>
                     </div>
@@ -43,25 +44,39 @@
                         <input class="form-control text-center mt-2"  id="cvv" type="text" />
                     </div>
                 </div>
-                <!-- <button class="btn btn-outline-primary col-sm-6 col-12 fs-5 mt-4 d-none d-lg-block">Pay   {{getTotalPrice()|currency:'USD'}}</button> -->
-                <!-- <a routerLink="/products" class="text-black fs-4 " >Shop now</a> -->
-
-            
             </div>
-            <div class="order-summery col-12 col-lg-4 px-4">
-                 <span class="fs-3">Order Summery</span>
-                 <div class="product d-flex align-items-center mb-4" *ngFor="let item of products ; let i=index">
-                     <img src="{{item.img}}"/>
-                     <div>
-                         <span class="product-title">{{item.title}}</span>
-                         <i class="fa-solid fa-square-plus fs-4" (click)="increment(i)"></i>
-                         <span class="mx-2 fs-5">{{item.qty}}</span>
-                         <i class="fa-solid fa-square-minus fs-4 " (click)="decrement(i)"></i>
-                     </div>
-                     <i class="fa-solid fa-close fs-5" (click)="remove(item.id)" ></i>
-                 </div>
+            <div class="actions pt-sm-4 px-4">
+                <button class="btn btn-outline-primary col fs-5" [disabled]="products.length?false:true" (click)="pay()">Pay   {{getTotalPrice()|currency:'USD'}}</button>
+                <a routerLink="/products" class="text-black fs-4 ms-4 " >Shop now</a>
+            </div>
+           </div>
+            <div class="order-summary col-12 col-lg-5 px-4">
+                <span class="fs-3">Order Summary</span>
+                <div class="products mt-4" *ngIf="products.length">
+                    <div class="product d-flex align-items-center  gap-1  mb-4" *ngFor="let item of products ; let i=index">
+                        <div  class="col-3 text-start">
+                           <img src="{{item.image}}" />
+                        </div>
+                        <div class="col-8">
+                            <span class="product-title">{{item.title}}</span>
+                            <i class="fa-solid fa-square-plus fs-4" (click)="increment(i)"></i>
+                            <span class="mx-2 fs-5">{{item.qty}}</span>
+                            <i class="fa-solid fa-square-minus fs-4 " (click)="decrement(i)"></i>
+                        </div>
+                        <i class="fa-solid fa-close fs-5" (click)="remove(item.id)" ></i>
+                    </div>
+                </div>
+                <div class="no-products mt-2 text-center" *ngIf="!products.length">
+                    <img src="assets/images/cart/girl-empty-cart.png"/>
+                    <p class="text-danger">
+                        Oh! Your shopping cart appears to be empty
+                        <br/>
+                        Try to see new products 
+                    </p>
+                    <a class="btn btn-outline-danger mt-4 w-50" routerLink="/products">Shop Now</a>
+                </div>
                 <hr/>
-                <div class="price-summery">
+                <div class="price-summary">
                     <div class="d-flex">
                         <span>Subtotal</span>
                         <span>{{ getsubTotal()|currency:'USD'}}</span>
@@ -80,12 +95,11 @@
                     </div>
                 </div>
             </div>
-        </div> 
-        <div class="actions pt-sm-4 px-4">
-            <button class="btn btn-outline-primary col fs-5">Pay   {{getTotalPrice()|currency:'USD'}}</button>
-            <a routerLink="/products" class="text-black fs-4 ms-4 " >Shop now</a>
-        </div>
-        
-
+        </div>    
     </div>
 </div>
+<!-- <button (click)="chg()">gggg</button> -->
+<!-- <ngb-toast *ngIf="show" header="Hello" [autohide]="false" (hidden)="show=false">
+    I am a simple static toast with a header.
+</ngb-toast> -->
+<!-- <ngb-toast [autohide]="false"> I am a simple static toast. </ngb-toast> -->
