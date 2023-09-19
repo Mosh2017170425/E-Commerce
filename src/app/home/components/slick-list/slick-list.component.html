@@ -10,11 +10,11 @@
         #slickModal="slick-carousel"                        
         [config]="slideConfig" >
         <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-          <a routerLink="/products/{{slide}}">
+          <a routerLink="/products" [queryParams]="{'category':slide.title}">
             <img src="{{ slide.img }}" alt="" class="mt-2" >
           </a>
           <div class="content mt-2">
-            <h4>{{slide.name}}</h4>
+            <h4>{{slide.title}}</h4>
           </div>
         </div>
     </ngx-slick-carousel>

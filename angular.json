@@ -28,7 +28,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"   ,           
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",      //for popup     
+              "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
 
               "src/styles/all.min.css",
               "src/styles.css"

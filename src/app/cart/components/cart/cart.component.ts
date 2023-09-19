@@ -1,54 +1,48 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.development';
+import { CartService } from './../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit,OnDestroy {
-  products:any[]=[];
+export class CartComponent implements OnInit {
+  cartData : any = {products:[],totalPrice:0};
   tax=0;
-  constructor(private router:Router){}
+  constructor(private router:Router,private cartService : CartService){}
   ngOnInit(): void {
-    let data = localStorage.getItem(environment.cart);
-    this.products = data ? JSON.parse(data):[] ;
-  }
-  ngOnDestroy(): void {
-    localStorage.setItem(environment.cart,JSON.stringify(this.products));
+    this.cartService.cartDataubj.subscribe((cartData)=>{
+      this.cartData = cartData;
+    })
   }
   removeFromCart(id:number):void{
-    this.products = this.products.filter((product)=>product.id != id);
+    this.cartService.removeProductFromCart(id);
   }
   increment(index:number):void{
-    this.products[index].qty++;
+    let quantity = this.cartData.products[index].qty+1;
+    this.cartService.updateCart(index,quantity);
   }
   decrement(index:number):void{
-    if(this.products[index].qty>1)
+    if(this.cartData.products[index].qty>1)
     {
-      this.products[index].qty--;
+      let quantity = this.cartData.products[index].qty-1;
+      this.cartService.updateCart(index,quantity);
     }
-  }
-  getTotalPrice():number{
-    let totalPrice=0;
-    this.products.map((product)=>{
-      totalPrice+=product.qty*product.price;
-    });
-    return totalPrice;
   }
   getCount():number{
     let count=0;
-    this.products.map((product)=>{
+    this.cartData.products.map((product:any)=>{
       count+=product.qty;
     });
     return count;
   }
   clear(){
-    this.products=[];
+    this.cartService.clearCart();
   }
   checkout(){
-    this.router.navigateByUrl('/payment',{state:this.products});
+    this.router.navigateByUrl('/payment');
+    // ,{state:this.cartData}
   }
   navigateToShop(){
     this.router.navigate(['/products']);

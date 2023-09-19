@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FilterPopupComponent } from '../filter-popup/filter-popup.component';
 
 import { ProductsService } from './../../services/products.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,18 +20,22 @@ export class AllProductsComponent  implements OnInit{
   checkboxesCategory:any={};
   checkboxesAvailable:any={"in-stock":false,"out-stock":false}
 
-  constructor(private service:ProductsService,private mydialog:MatDialog){}
+  constructor(private service:ProductsService,private mydialog:MatDialog,private actRoute:ActivatedRoute){
+      actRoute.queryParams.subscribe((params)=>{
+        console.log(params);
+      })
+  }
   ngOnInit(): void {
     // this.getproducts();
     // this.getallCategories();
     this.products=[
-            {id:1,title:"ee",category:'elec',price:200,rating:{rate:3,count:0},image:'assets/images/slick-list/electronics-1.jpg'},
-            {id:2,title:"we",category:'women',price:1000,rating:{rate:1,count:3},image:'assets/images/slick-list/women-3.jpg'},
-            {id:3,title:"man",category:'man',price:900 ,rating:{rate:5,count:5},image:'assets/images/slick-list/men-2.jpg'},
-            {id:4,title:"elec",category:'elec',price:1000,rating:{rate:2,count:10},image:'assets/images/slick-list/electronics-2.jpg'},
-            {id:5,title:"man manman manma nmanm anmanm anmanman manmanmanma nmanmanman",category:'man',price:2000 
+            {id:1,title:"ee",category:'Electronics',price:200,rating:{rate:3,count:0},image:'assets/images/slick-list/electronics-1.jpg'},
+            {id:2,title:"we",category:"Women's Clothing",price:1000,rating:{rate:1,count:3},image:'assets/images/slick-list/women-3.jpg'},
+            {id:3,title:"man",category:"Men's Clothing",price:900 ,rating:{rate:5,count:5},image:'assets/images/slick-list/men-2.jpg'},
+            {id:4,title:"elec",category:'Electronics',price:1000,rating:{rate:2,count:10},image:'assets/images/slick-list/electronics-2.jpg'},
+            {id:5,title:"man manman manma nmanm anmanm anmanman manmanmanma nmanmanman",category:"Men's Clothing",price:2000 
             ,rating:{rate:4,count:0},image:'assets/images/slick-list/men-3.jpg'},
-            {id:6,title:"man",category:'man',price:3000 ,rating:{rate:3,count:3},image:'assets/images/slick-list/men-3.jpg'},
+            {id:6,title:"man",category:"Men's Clothing",price:3000 ,rating:{rate:3,count:3},image:'assets/images/slick-list/men-3.jpg'},
           ]
           this.categories=['man','elec','women'];
           this.checkboxesCategory={'man':false,'elec':false,'women':false}

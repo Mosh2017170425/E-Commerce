@@ -1,56 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
-import { environment } from 'src/environments/environment.development';
+import { CartService } from './../../../cart/services/cart.service';
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent {
-  value:any;
-  show:boolean=true;
-  tax:number=0.0;
-  shipping:number=0.01;
-  products:any[]=[];
-  constructor( private router:Router){
-    let data = this.router.getCurrentNavigation()?.extras.state;
-    this.products = Object.values({...data});
-    console.log(this.products);
+export class PaymentComponent implements OnInit{
+  paymentMethod:any;
+  tax:number;
+  shipping:number;
+  cartData:any;
+  constructor( private cartService : CartService ){
+    this.tax = 0.0;
+    this.shipping = 0.01;
+    this.cartData = {products:[],totalPrice:0};
   }
-  ngOnDestroy(): void {
-    localStorage.setItem(environment.cart,JSON.stringify(this.products));
-  }
-  chg(){
-    this.show=true;
+  ngOnInit(): void {
+    this.cartService.cartDataubj.subscribe((cartData)=>{
+      this.cartData = cartData;
+    });
   }
   click(payment:string){
-    this.value=payment;
+    this.paymentMethod=payment;
   }
   decrement(index:number){
-    if( this.products[index].qty>1){
-      this.products[index].qty--;
+    if( this.cartData.products[index].qty > 1){
+      let quantity = this.cartData.products[index].qty - 1;
+      this.cartService.updateCart(index,quantity);
     }
   }
   increment(index:number){
-    this.products[index].qty++;
+    let quantity = this.cartData.products[index].qty + 1;
+    this.cartService.updateCart(index,quantity);
   }
   remove(id:number){
-    this.products = this.products.filter((item)=>item?.id != id);
-    console.log(this.products);
-  }
-  getsubTotal(){
-    let subtotal = 0;
-    this.products.map((product)=>{
-      subtotal+=product.price * product.qty;
-    });
-    return subtotal;
+    this.cartService.removeProductFromCart(id);
   }
   getTotalPrice(){
-    let total= this.tax + this.shipping;
-    this.products.map((product)=>{
-      total+=product.price * product.qty;
-    });
+    let total= this.tax + this.shipping + this.cartData.totalPrice;
     return total;
   }
   pay(){

@@ -7,7 +7,8 @@
     background-color: transparent;
 }
 .content-lg .section-1 .tools a {
-    color: rgb(17, 85, 113);
+    /* color: rgb(17, 85, 113); */
+    color:black;
     font-size:20px;
 }
 
@@ -39,3 +40,11 @@
     text-decoration: none;
     color:black;
 }
+/* .cart-badge{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: -10px;
+} */

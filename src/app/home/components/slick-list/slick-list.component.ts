@@ -36,16 +36,16 @@ export class SlickListComponent implements OnInit {
       ]
     };
     this.slides = [
-      {img: "../../../../assets/images/slick-list/women-1.jpg",name:"Women's Clothing"},
-      {img: "../../../../assets/images/slick-list/men-1.jpg",name:"Men's Clothing"},
-      {img: "../../../../assets/images/slick-list/women-2.jpg",name:"Momen's Clothing"},
-      {img: "../../../../assets/images/slick-list/electronics-2.jpg",name:"Electronics"},
-      {img: "../../../../assets/images/slick-list/jewelery-1.jpg",name:"Jewelery"},
-      {img: "../../../../assets/images/slick-list/men-2.jpg",name:"Men's Clothing"},
-      {img: "../../../../assets/images/slick-list/electronics-1.jpg",name:"Electronics"},
-      {img: "../../../../assets/images/slick-list/electronics-3.jpg",name:"Electronics"},
-      {img: "../../../../assets/images/slick-list/jewelery-2.jpg",name:"Jewelery"},
-      {img: "../../../../assets/images/slick-list/women-3.jpg",name:"Women's Clothing"}
+      {img: "assets/images/slick-list/women-1.jpg",title:"Women's Clothing"},
+      {img: "assets/images/slick-list/men-1.jpg",title:"Men's Clothing"},
+      {img: "assets/images/slick-list/women-2.jpg",title:"women's Clothing"},
+      {img: "assets/images/slick-list/electronics-2.jpg",title:"Electronics"},
+      {img: "assets/images/slick-list/jewelery-1.jpg",title:"Jewelery"},
+      {img: "assets/images/slick-list/men-2.jpg",title:"Men's Clothing"},
+      {img: "assets/images/slick-list/electronics-1.jpg",title:"Electronics"},
+      {img: "assets/images/slick-list/electronics-3.jpg",title:"Electronics"},
+      {img: "assets/images/slick-list/jewelery-2.jpg",title:"Jewelery"},
+      {img: "assets/images/slick-list/women-3.jpg",title:"Women's Clothing"}
     ];
 
     // this.getCategories();

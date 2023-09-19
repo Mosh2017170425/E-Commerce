@@ -12,8 +12,8 @@
                     <a routerLink="/favorites" >
                         <i class="fa-regular fa-heart"></i>
                     </a>
-                    <a routerLink="/cart" >
-                        <i class="fa-solid fa-cart-shopping"></i>
+                    <a routerLink="/cart" class="mt-1" >
+                        <mat-icon [matBadge] = "cartData.products.length" >shopping_cart</mat-icon>
                     </a>
                 </div>
             </div>
@@ -43,3 +43,8 @@
     </div>
     <hr class="mb-0 mt-2"/>
 </div>
+<!-- <div>
+
+</div>
+<span class="cart-badge">{{cartCount}}</span>
+<i class="fa-solid fa-cart-shopping"></i> -->

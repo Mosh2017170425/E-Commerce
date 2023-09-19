@@ -10,6 +10,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './components/select/select.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
   imports: [
     CommonModule,
     MatIconModule,
+    MatBadgeModule,
     FormsModule,
     RouterModule
   ],

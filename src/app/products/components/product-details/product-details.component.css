@@ -1,6 +1,12 @@
+.fa-star{
+    color:yellow 
+}
 .product-details{
-    position: relative;
+    /* position: relative; */
     padding-top: 30px;
+}
+.product-data{
+    font-size: 20px;
 }
 .imgs-section{
     height: 500px;
@@ -28,29 +34,33 @@
     object-fit: cover;
     border: 2px solid black;
 }
-.rate{
-    display: inline-block;
+.amount-price-section{
+    display: flex;
+    font-weight: 600;
+    justify-content: space-between;
 }
-.price{
-    position: absolute;
-    right: 12px;
+.amount-price-section .rate{
+    color:#c5374a;
 }
-.quantity-container,.actions-container{
-    margin-top: 30px; 
+.actions-container .btn{
+    border: 2px solid #9A2736;
+    color:#c5374a;
  } 
-.quantity-container .quantity{
-    font-size: 20px;
-    padding: 5px;
-    border-radius: 5px;
-    outline: none;
-    border: 3px silver solid;
-    width: 100px;
-    text-align: center;
-    
-}
-.quantity-container .quantity:hover{
-    border: 3px solid rgb(165, 165, 255);
-}
-.related-products h2{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+ .actions-container .btn:hover{
+    background-color:#9A2736;
+    color: white;
+ } 
+ .product-data .price{
+    color: #9A2736;
+    font-weight: 600;
+ }
+ .quantity-container span{
+    font-weight: 600;
+ }
+
+.product-data h2{
+    color: #D9203F;
+    font-family: 'Rouge';
+    font-size: 40px;
+    font-weight: 700;
 }

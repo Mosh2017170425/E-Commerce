@@ -13,13 +13,13 @@
                     <div class="credit-card  col-10  col-md-5" (click)="click('credit')">
                         <i class="icon me-3 fa-regular fa-credit-card" style="color: #000000;"></i>
                         <span class="flex-grow-1">Credit Card</span>
-                        <input type="radio" name="paymentMethod" value="credit"  [(ngModel)]="value" />
+                        <input type="radio" name="paymentMethod" value="credit"  [(ngModel)]="paymentMethod" />
                     </div>
                          <!-- *ngClass="'border-color'" -->
                     <div class="paypal col-10 col-md-5" (click)="click('paypal')" >
                         <i class="icon me-3  fa-brands fa-paypal" style="color: #000000;"></i>
                         <span class="flex-grow-1">PayPal</span>
-                        <input type="radio"  name="paymentMethod" value="paypal" [(ngModel)]="value"/>
+                        <input type="radio"  name="paymentMethod" value="paypal" [(ngModel)]="paymentMethod"/>
                     </div>
                 </div>
                 <div class="form-group ">
@@ -46,14 +46,14 @@
                 </div>
             </div>
             <div class="actions pt-sm-4 px-4">
-                <button class="btn btn-outline-primary col fs-5" [disabled]="products.length?false:true" (click)="pay()">Pay   {{getTotalPrice()|currency:'USD'}}</button>
+                <button class="btn btn-outline-primary col fs-5" [disabled]="cartData.products.length?false:true" (click)="pay()">Pay   {{getTotalPrice()|currency:'USD'}}</button>
                 <a routerLink="/products" class="text-black fs-4 ms-4 " >Shop now</a>
             </div>
            </div>
             <div class="order-summary col-12 col-lg-5 px-4">
                 <span class="fs-3">Order Summary</span>
-                <div class="products mt-4" *ngIf="products.length">
-                    <div class="product d-flex align-items-center  gap-1  mb-4" *ngFor="let item of products ; let i=index">
+                <div class="products mt-4" *ngIf="cartData.products.length">
+                    <div class="product d-flex align-items-center  gap-1  mb-4" *ngFor="let item of cartData.products ; let i=index">
                         <div  class="col-3 text-start">
                            <img src="{{item.image}}" />
                         </div>
@@ -66,7 +66,7 @@
                         <i class="fa-solid fa-close fs-5" (click)="remove(item.id)" ></i>
                     </div>
                 </div>
-                <div class="no-products mt-2 text-center" *ngIf="!products.length">
+                <div class="no-products mt-2 text-center" *ngIf="!cartData.products.length">
                     <img src="assets/images/cart/girl-empty-cart.png"/>
                     <p class="text-danger">
                         Oh! Your shopping cart appears to be empty
@@ -79,7 +79,7 @@
                 <div class="price-summary">
                     <div class="d-flex">
                         <span>Subtotal</span>
-                        <span>{{ getsubTotal()|currency:'USD'}}</span>
+                        <span>{{ cartData.totalPrice|currency:'USD'}}</span>
                     </div>
                     <div class="d-flex">
                         <span>Tax</span>

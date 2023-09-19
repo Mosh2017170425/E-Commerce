@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { ProductsService } from './../../services/products.service';
 import { SharedService } from './../../../shared/services/shared.service';
+import { CartService } from 'src/app/cart/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,7 +14,7 @@ export class ProductDetailsComponent implements OnInit{
   relatedProducts:any[]=[]
   categoryProducts:any[]=[];
   imageSrc:string='';
-  quantity=1;
+  quantity = 1;
   slideConfig = {
      "slidesToShow": 4,
      "slidesToScroll": 4,
@@ -22,7 +23,8 @@ export class ProductDetailsComponent implements OnInit{
   constructor(
     private activatedRoute:ActivatedRoute,
     private myservice:ProductsService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private cartService:CartService,
   ){}
   ngOnInit(): void {
     console.log('init');
@@ -37,6 +39,7 @@ export class ProductDetailsComponent implements OnInit{
       {id:6,title:"man",category:'man',price:3000 ,rating:{rate:3,count:3}},
     ]
     this.activatedRoute.params.subscribe(({id})=>{
+      this.quantity = 1;
       this.relatedProducts = this.categoryProducts.filter((item)=>{
         if(id==item.id){
           this.product=item;
@@ -74,20 +77,16 @@ export class ProductDetailsComponent implements OnInit{
     this.imageSrc=imgSrc;
   }
   decrement(){
-    if(this.quantity){
+    if(this.quantity > 1){
       this.quantity--;
     }
    
   }
   increment(){
-    if(!this.quantity)
-      this.quantity=1;
-    else
       this.quantity++;
-
   }
   addToCart(){
-    this.sharedService.addToCart(this.product,this.quantity)
+    this.cartService.addProductToCart(this.product,this.quantity)
   }
   addToFavorites(){
     this.sharedService.addToFavorites(this.product.id);
