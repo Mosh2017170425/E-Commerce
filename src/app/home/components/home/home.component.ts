@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeService } from '../../services/home.service';
+import { ProductsService } from './../../../products/services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +8,15 @@ import { HomeService } from '../../services/home.service';
 })
 export class HomeComponent {
   products:any[]=[];
-  constructor(private myservice:HomeService){}
+  constructor(private myservice:ProductsService){}
   ngOnInit(): void {
-    this.getAllProducts();
+    this.getProducts();
   }
-  getAllProducts(){
+  getProducts(){
     this.myservice.getAllProducts().subscribe({
       next:(data:any)=>{
-        this.products=data.slice(0,10);
+        console.log(data)
+        this.products=data.products.slice(0,20);
       },
       error:(err)=>{
         console.log(err);

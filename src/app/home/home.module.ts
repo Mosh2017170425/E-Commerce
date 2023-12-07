@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 
 import { SliderComponent } from './components/slider/slider.component';
 import { SlickListComponent } from './components/slick-list/slick-list.component';
-import { ShowProductsComponent } from "./components/show-products/show-products.component";
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from '../shared/shared.module';
 // Import your library
@@ -15,8 +14,6 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     HomeComponent,
     SliderComponent,
     SlickListComponent,
-    ShowProductsComponent,
-
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e-commerce';
+  showUpButton: boolean = false;
   toggle(sidenav:any){
-    // console.log(sidenav);
     sidenav.toggle();
   }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showUpButton = (window.pageYOffset > 0);
+  }
 }
+

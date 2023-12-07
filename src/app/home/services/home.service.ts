@@ -7,11 +7,4 @@ import { environment } from 'src/environments/environment.development';
 })
 export class HomeService {
 
-  constructor(private http:HttpClient) { }
-  getAllProducts(){
-    return this.http.get(`${environment.BaseUrl}products`);
-  }
-  getCategories(){
-    return this.http.get(`${environment.BaseUrl}categories`);
-  }
 }

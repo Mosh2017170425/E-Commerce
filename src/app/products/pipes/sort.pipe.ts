@@ -6,23 +6,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SortPipe implements PipeTransform {
 
   transform(value: any[], sortField: string): any[] {
+
     if(!value || !sortField ||sortField === 'none'){
       return value;
     }
     else{
+
       let products=[...value];
+
       products.sort((a:any,b:any)=>{
         let prop1;
         let prop2;
-        if(sortField=='rate'){
-          prop1=a.rating[sortField];
-          prop2=b.rating[sortField]
-        }
-        else
-        {
-          prop1=a[sortField];
-          prop2=b[sortField]
-        } 
+
+        prop1=a[sortField];
+        prop2=b[sortField]
+
         if(prop1 > prop2)
         {
           return 1;

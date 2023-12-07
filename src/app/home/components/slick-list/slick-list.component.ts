@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './../../services/home.service';
+import { ProductsService } from './../../../products/services/products.service';
 @Component({
   selector: 'app-slick-list',
   templateUrl: './slick-list.component.html',
@@ -9,7 +9,8 @@ import { HomeService } from './../../services/home.service';
 export class SlickListComponent implements OnInit {
   slideConfig:any;
   slides:any;
-  constructor(private myservice:HomeService){}
+  slidesImages:any;
+  constructor(private myservice:ProductsService){}
   ngOnInit(): void {
     this.slideConfig = {
       "slidesToShow": 3,
@@ -35,23 +36,33 @@ export class SlickListComponent implements OnInit {
          }
       ]
     };
-    this.slides = [
-      {img: "assets/images/slick-list/women-1.jpg",title:"Women's Clothing"},
-      {img: "assets/images/slick-list/men-1.jpg",title:"Men's Clothing"},
-      {img: "assets/images/slick-list/women-2.jpg",title:"women's Clothing"},
-      {img: "assets/images/slick-list/electronics-2.jpg",title:"Electronics"},
-      {img: "assets/images/slick-list/jewelery-1.jpg",title:"Jewelery"},
-      {img: "assets/images/slick-list/men-2.jpg",title:"Men's Clothing"},
-      {img: "assets/images/slick-list/electronics-1.jpg",title:"Electronics"},
-      {img: "assets/images/slick-list/electronics-3.jpg",title:"Electronics"},
-      {img: "assets/images/slick-list/jewelery-2.jpg",title:"Jewelery"},
-      {img: "assets/images/slick-list/women-3.jpg",title:"Women's Clothing"}
-    ];
-
-    // this.getCategories();
+    this.slidesImages=[
+      "assets/images/categories/smartphones.jpg",
+      "assets/images/categories/laptops.webp",
+      "assets/images/categories/fragrances.jpg" ,
+      "assets/images/categories/skincare.webp" ,
+      "assets/images/categories/groceries.png",
+      "assets/images/categories/home-decoration.jpg",
+      "assets/images/categories/furniture.webp",
+      "assets/images/categories/tops-products.png",
+      "assets/images/categories/womens-dresses.jpg",
+      "assets/images/categories/womens-shoes.jpg" ,
+      "assets/images/categories/mens-shirts.jpg" ,
+      "assets/images/categories/mens-shoes.webp",
+      "assets/images/categories/mens-watches.webp" ,
+      "assets/images/categories/womens-watches.jpg",
+      "assets/images/categories/womens-bags.webp",
+      "assets/images/categories/womens-jewellery.jpg",
+      "assets/images/categories/sunglasses.jpg",
+      "assets/images/categories/automotive.jpg",
+      "assets/images/categories/motorcycle.jpg",
+      "assets/images/categories/lighting.jpg"
+    ]
+   
+    this.getCategories();
   }
   getCategories(){
-    this.myservice.getCategories().subscribe({
+    this.myservice.getAllCategories().subscribe({
       next:(data:any)=>{
         this.slides = data;
       },
@@ -61,3 +72,4 @@ export class SlickListComponent implements OnInit {
     });
   }
 }
+ 

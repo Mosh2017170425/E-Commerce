@@ -6,13 +6,9 @@
                 <i class="fa-solid fa-angle-down angle-icon" style="color:#000;"></i>
             </a>
             <ul class="collapse" id="available">
-                <li>
-                    <input type="checkbox"  id="inStock2" [(ngModel)]="data.checkboxesAvailable['in-stock']" class="me-2"> 
-                    <label for="inStock2">In Stock </label>
-                </li>
-                <li>
-                    <input type="checkbox" id="outStock2"   [(ngModel)]="data.checkboxesAvailable['out-stock']" class="me-2">
-                    <label for="outStock2">Out Of Stock</label>
+                <li *ngFor="let checkboxInfo of checkboxAvailable">
+                    <input type="checkbox" id="{{checkboxInfo.label}}2" name="availability" [(ngModel)]="checkboxInfo.checked"  class="me-2" />
+                    <label for="{{checkboxInfo.label}}2">{{checkboxInfo.label}}</label>
                 </li>
             </ul>
         </div>
@@ -22,9 +18,9 @@
                 <i class="fa-solid fa-angle-down angle-icon" style="color: #000;"></i>
             </a>
             <ul class="collapse " id="category">
-                <li *ngFor="let cate of categories">
-                    <input type="checkbox"  id="{{cate+2}}" [(ngModel)]="data.checkboxesCategory[cate]" class=" me-2">
-                    <label for="{{cate+2}}">{{cate}}</label>
+                <li *ngFor="let checkboxInfo of checkboxCategory">
+                    <input type="checkbox"  id="{{checkboxInfo.label+2}}" [(ngModel)]="checkboxInfo.checked" name="category" class=" me-2"  />
+                    <label for="{{checkboxInfo.label+2}}">{{checkboxInfo.label}}</label>
                 </li>
             </ul>
         </div>
@@ -37,11 +33,11 @@
                 <li>
                     <span>min</span>      
                     <div class="price-container"> 
-                        <input type="number" placeholder="0" class="mx-2" [(ngModel)] ="data.minPrice"/>
+                        <input type="number" placeholder="0" class="mx-2" [(ngModel)] ="price.minPrice" />
                     </div>
                     <span>max</span>  
                     <div class="price-container">                               <!-- to get ts <==> html and get  -->
-                        <input type="number" placeholder="+1000" class="mx-2" [(ngModel)]="data.maxPrice" />
+                        <input type="number" placeholder="+1000" class="mx-2" [(ngModel)]="price.maxPrice" />
                     </div>
                 </li>
             </ul>

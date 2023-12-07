@@ -4,7 +4,7 @@
         <div class="products-container  col-12  col-lg-6   flex-grow-1">
             <div class="single-item mb-4" *ngFor="let product of cartData.products ;let i = index">
                 <div class="content  fs-4 h-100" >
-                    <img src="{{product.image}}" alt=""/>
+                    <img src="{{product.thumbnail}}" alt=""/>
                     <span >{{product.price*product.qty|currency:'USD'}}</span>
                     <div class="quantity">
                         <i class="fa-solid fa-minus" style="color: red" (click)="decrement(i)"></i>

@@ -55,7 +55,6 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<a href="#top" class="button-up" >
+<button class="button-up"  [hidden]="!showUpButton" (click)="scrollToTop()">
   <i class="fa-solid fa-arrow-up" style="color: #ffffff;"></i>
-</a>
-
+</button>

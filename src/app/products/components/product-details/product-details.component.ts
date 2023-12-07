@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from './../../services/products.service';
-import { SharedService } from './../../../shared/services/shared.service';
 import { CartService } from 'src/app/cart/services/cart.service';
 
 @Component({
@@ -12,7 +11,6 @@ import { CartService } from 'src/app/cart/services/cart.service';
 export class ProductDetailsComponent implements OnInit{
   product:any;
   relatedProducts:any[]=[]
-  categoryProducts:any[]=[];
   imageSrc:string='';
   quantity = 1;
   slideConfig = {
@@ -21,52 +19,35 @@ export class ProductDetailsComponent implements OnInit{
      "arrows":false,
   };
   constructor(
+    private router:Router,
     private activatedRoute:ActivatedRoute,
-    private myservice:ProductsService,
-    private sharedService: SharedService,
+    private productService:ProductsService,
     private cartService:CartService,
   ){}
   ngOnInit(): void {
-    console.log('init');
-    // let category= this.activatedRoute.snapshot.paramMap.get('category');
-    // this.getCategoryProducts(category);
-    this.categoryProducts=[
-      {id:1,title:"ee",category:'elec',price:200,rating:{rate:3,count:0}},
-      {id:2,title:"we",category:'women',price:1000,rating:{rate:1,count:3}},
-      {id:3,title:"man",category:'man',price:900 ,rating:{rate:5,count:5}},
-      {id:4,title:"elec",category:'elec',price:1000,rating:{rate:2,count:10}},
-      {id:5,title:"man manman manma nmanm anmanm anmanman manmanmanma nmanmanman",category:'man',price:2000 ,rating:{rate:4,count:0}},
-      {id:6,title:"man",category:'man',price:3000 ,rating:{rate:3,count:3}},
-    ]
-    this.activatedRoute.params.subscribe(({id})=>{
+    this.activatedRoute.params.subscribe(({id,category})=>{
       this.quantity = 1;
-      this.relatedProducts = this.categoryProducts.filter((item)=>{
-        if(id==item.id){
-          this.product=item;
-        }
-        return id != item.id
-      });
-      // this.imageSrc=this.product.image;
-      this.product.images=[
-        'assets/images/slick-list/jewelery-1.jpg',
-        'assets/images/slick-list/electronics-2.jpg',
-        'assets/images/slick-list/electronics-3.jpg',
-        'assets/images/slick-list/women-3.jpg',
-        'assets/images/slick-list/women-2.jpg',
-        'assets/images/slick-list/women-1.jpg'
-      ];
-      this.product.description="Candidates are working together in one of the following Suggested Projects"+
-          "product based program that will empower you to learn the"+
-          "latest technologies in both MEARN and MERN stack"+
-          "development technologies and tools. ";
+      this.getProduct(id);
+      this.getRelatedProducts(category);
     });
-    this.imageSrc=this.product.images[0];
+   
   }
   
-  getCategoryProducts(category:string){
-    this.myservice.getCategoryProducts(category).subscribe({
+  getRelatedProducts(category:string){
+    this.productService.getCategoryProducts(category).subscribe({
       next:(data:any)=>{
-        this.categoryProducts = data;
+        this.relatedProducts = data.products;
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+  getProduct(id:number){
+    this.productService.getProduct(id).subscribe({
+      next:(data)=>{
+        this.product = data;
+        this.imageSrc=this.product.thumbnail;
       },
       error:(err)=>{
         console.log(err);
@@ -76,20 +57,31 @@ export class ProductDetailsComponent implements OnInit{
   changeImage(imgSrc:string){
     this.imageSrc=imgSrc;
   }
-  decrement(){
-    if(this.quantity > 1){
-      this.quantity--;
-    }
-   
-  }
-  increment(){
-      this.quantity++;
-  }
+  
   addToCart(){
     this.cartService.addProductToCart(this.product,this.quantity)
   }
-  addToFavorites(){
-    this.sharedService.addToFavorites(this.product.id);
+  buyNow(){
+    this.cartService.addProductToCart(this.product,this.quantity);
+    this.router.navigateByUrl('payment');
+  }
+  getStarArray(rating: number): string[] {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    const starArray = Array(fullStars).fill(' fa-star ');
+    
+    if (hasHalfStar) {
+      starArray.push(' fa-star-half-stroke ');
+    }
+    return starArray;
+  }
+  decrement(){
+    if(this.quantity > 1){
+      this.quantity--;
+    } 
+  }
+  increment(){
+    this.quantity++;
   }
 }
 

@@ -5,21 +5,25 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterAvailabilityPipe implements PipeTransform {
 
-  transform(products:any[],checkboxesAvailable:any): any[] {
-    let instock= checkboxesAvailable['in-stock'];
-    let outstock=checkboxesAvailable['out-stock'];
-    if(instock || outstock)
+  transform(products:any[],selectedAvailable:any[]): any[] {
+
+    if(!selectedAvailable||!selectedAvailable.length){
+      return products;
+    }
+    else
     {
       let filteredProducts;
       filteredProducts= products.filter((product:any)=>{
-        return (product.rating.count > 0 && instock ) || (product.rating.count == 0 && outstock)  ;
+        return selectedAvailable?.some((availNum)=>{
+          if(availNum=='1'){
+            return product.stock > 0
+          }
+          else{
+            return product.stock == 0 
+          }
+        });
       });
       return filteredProducts;
     }
-    else{
-      return products;
-    }
-
   }
-
 }

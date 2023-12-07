@@ -55,7 +55,7 @@
                 <div class="products mt-4" *ngIf="cartData.products.length">
                     <div class="product d-flex align-items-center  gap-1  mb-4" *ngFor="let item of cartData.products ; let i=index">
                         <div  class="col-3 text-start">
-                           <img src="{{item.image}}" />
+                           <img src="{{item.thumbnail}}" />
                         </div>
                         <div class="col-8">
                             <span class="product-title">{{item.title}}</span>

@@ -59,7 +59,7 @@ mat-nav-list .connectus a:hover{
   z-index: 10;
   background-color:#F8796C ;
   font-size: 30px;
-}
-.button-up i{
-  margin:20px ;
+  border: none;
+  width: 60px;
+  height: 60px;
 }

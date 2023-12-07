@@ -1,7 +1,7 @@
 <div class="produdct p-4">
     <div class="content shadow p-2  w-100 h-100 rounded-4 ">
         <div class="img-section">
-            <img class="w-100 h-100 mb-4  rounded-top-4" src='{{product.image}} '/>
+            <img class="w-100 h-100 mb-4  rounded-top-4" src='{{product.thumbnail}} '/>
         </div>
         <div class="details-section">
             <span class="my-2">{{product.title }}</span> 
@@ -9,7 +9,7 @@
                 <span><b>{{product.price|currency:"USD"}}</b></span>
                 <div class="rate">
                     <i class="fa-solid fa-star  me-1" style="color: #fad900;"></i>
-                    <span><b>{{product.rating.rate}}</b></span>
+                    <span><b>{{product.rating}}</b></span>
                 </div>
             </div>
         </div>

@@ -41,7 +41,6 @@ export class CartService {
   removeProductFromCart(id:number):void{
     this.cartData.products = this.cartData.products.filter((product)=>product.id != id);
     this.cartData.totalPrice = this.getTotalPrice();
-    console.log(this.cartData)
     localStorage.setItem(environment.cart,JSON.stringify(this.cartData));
     this.cartDataubj.next(this.cartData);
      this.notification.success( 
